@@ -10,16 +10,17 @@ import me.shib.java.lib.restiny.util.JsonUtil;
 
 import java.util.logging.Logger;
 
-final class OMDbService {
+public final class OMDbService {
 
-    private static final String omdbEndpoint = "http://www.omdbapi.com/";
+    private static String omdbEndpoint = "http://www.omdbapi.com/";
 
     private static Logger logger = Logger.getLogger(OMDbService.class.getName());
 
     private JsonUtil jsonUtil;
     private RESTinyClient resTinyClient;
 
-    OMDbService() {
+    OMDbService(String key) {
+        this.omdbEndpoint="http://www.omdbapi.com/?i=tt3896198&apikey="+key;
         this.jsonUtil = new JsonUtil();
         this.resTinyClient = new RESTinyClient(omdbEndpoint);
     }
